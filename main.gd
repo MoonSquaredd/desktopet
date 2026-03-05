@@ -4,9 +4,8 @@ var mateScene = preload("res://mate.tscn")
 var mates = {}
 
 func _ready() -> void:
-	var folder
-	if OS.has_feature("standalone"):
-		folder = OS.get_executable_path().get_base_dir() + "/pets"
+	var folder = OS.get_executable_path().get_base_dir() + "/pets"
+	print(folder)
 	var dir = DirAccess.get_directories_at(folder)
 	for i in range(dir.size()):
 		var pet_node = mateScene.instantiate()

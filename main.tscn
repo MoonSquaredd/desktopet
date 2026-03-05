@@ -8,8 +8,7 @@ var mates = {}
 
 func _ready() -> void:
 	var folder
-	if OS.has_feature(\"standalone\"):
-		folder = OS.get_executable_path().get_base_dir() + \"/pets\"
+	folder = OS.get_executable_path().get_base_dir() + \"/pets\"
 	var dir = DirAccess.get_directories_at(folder)
 	for i in range(dir.size()):
 		var pet_node = mateScene.instantiate()

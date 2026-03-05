@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cnkfq5yhhempc"]
+
+[ext_resource type="Script" uid="uid://cpfuaryf54met" path="res://main.gd" id="1_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(1280, 32)
+
+[node name="main" type="Control" unique_id=1381989372]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+mouse_behavior_recursive = 1
+script = ExtResource("1_0xm2m")
+
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=532308178]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=73667925]
+position = Vector2(640, 704)
+shape = SubResource("RectangleShape2D_1bvp3")

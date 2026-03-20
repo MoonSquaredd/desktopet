@@ -3,9 +3,14 @@ extends Control
 var mateScene = preload("res://mate.tscn")
 var mates = {}
 
+var tbh
+
 func _ready() -> void:
-	var folder = OS.get_executable_path().get_base_dir() + "/pets"
-	print(folder)
+	tbh = DisplayServer.screen_get_size().y - DisplayServer.screen_get_usable_rect().size.y
+	$Area2D/CollisionShape2D.shape.size.y = tbh
+	$Area2D/CollisionShape2D.position.y = 720-tbh
+	var folder
+	folder = OS.get_executable_path().get_base_dir() + "/pets"
 	var dir = DirAccess.get_directories_at(folder)
 	for i in range(dir.size()):
 		var pet_node = mateScene.instantiate()
@@ -41,7 +46,7 @@ func _process(_delta: float) -> void:
 		var rng = randi_range(1,1000)
 		if rng == 1 && mate.state != "moving":
 			mate.state = "moving"
-			move(mate,Vector2(randi_range(0,1280),640))
+			move(mate,Vector2(randi_range(0,1280),720-tbh-48))
 
 func _on_rigid_body_2d_mouse_entered() -> void:
 	print(randi())
